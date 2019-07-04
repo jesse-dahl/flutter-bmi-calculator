@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
+import 'reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
 const Color activeCardColour = Color(0xFF1D1E33);
@@ -27,12 +29,15 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColour,
-                    cardChild: IconContent(),
+                    cardChild: IconContent(gender: "MALE", icon: FontAwesomeIcons.mars),
                   ),
                 ),
 
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: IconContent(gender: "FEMALE", icon: FontAwesomeIcons.venus),
+                  ),
                 ),
 
               ],
@@ -65,50 +70,6 @@ class _InputPageState extends State<InputPage> {
             height: bottomContainerHeight,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class IconContent extends StatelessWidget {
-  const IconContent({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(FontAwesomeIcons.mars, size: 80.0),
-        SizedBox(height: 15.0,),
-        Text(
-          "MALE", 
-          style: TextStyle(
-            fontSize: 18.0, 
-            color: Color(0xFF8D8E98),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-
-  final Color colour;
-  final Widget cardChild;
-
-  ReusableCard({@required this.colour, this.cardChild});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: cardChild,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: colour,
-        borderRadius: BorderRadius.circular(10.0)
       ),
     );
   }
