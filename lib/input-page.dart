@@ -9,6 +9,8 @@ enum Gender {
   female,
 }
 
+int weight = 160;
+
 class InputPage extends StatefulWidget {
 
   @override
@@ -18,7 +20,6 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 68;
-  int weight = 160;
 
   @override
   Widget build(BuildContext context) {
@@ -134,34 +135,16 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[ 
 
-                            FloatingActionButton(
-                              onPressed: () {
-                                setState(() {
-                                  weight < 350 ? weight++ : weight = weight;
-                                });
-                              },
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
-                              backgroundColor: Color(0xFF4C4F5E),
+                            RoundIconButton(
+                              child: Icon(Icons.add)
                             ),
 
                             SizedBox(
                               width: 10,
                             ),
 
-                            FloatingActionButton(
-                              onPressed: () {
-                                setState(() {
-                                  weight > 100 ? weight-- : weight = weight;
-                                });
-                              },
-                              child: Icon(
-                                Icons.remove,
-                                color: Colors.white,
-                              ),
-                              backgroundColor: Color(0xFF4C4F5E),
+                            RoundIconButton(
+                              child: Icon(Icons.remove)
                             ),
 
                           ],
@@ -186,6 +169,27 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+
+  RoundIconButton({this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+      child: child,
     );
   }
 }
