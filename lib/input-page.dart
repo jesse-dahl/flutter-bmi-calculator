@@ -136,7 +136,7 @@ class _InputPageState extends State<InputPage> {
                           children: <Widget>[ 
 
                             RoundIconButton(
-                              child: Icon(Icons.add)
+                              icon: Icons.remove,
                             ),
 
                             SizedBox(
@@ -144,7 +144,7 @@ class _InputPageState extends State<InputPage> {
                             ),
 
                             RoundIconButton(
-                              child: Icon(Icons.remove)
+                              icon: Icons.add,
                             ),
 
                           ],
@@ -169,27 +169,6 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-
-  RoundIconButton({this.child});
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: () {},
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      child: child,
     );
   }
 }
