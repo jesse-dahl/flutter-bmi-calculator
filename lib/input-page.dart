@@ -82,6 +82,11 @@ class _InputPageState extends State<InputPage> {
                         height.toString(),
                         style: numberTextStyle,
                       ),
+
+                      SizedBox(
+                        width: 10.0,
+                      ),
+
                       Text(
                         'in',
                         style: labelTextStyle,
@@ -223,6 +228,7 @@ class _InputPageState extends State<InputPage> {
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: bottomContainerHeight,
+            child: Text("Calculate Your BMI"),
           ),
         ],
       ),
