@@ -43,7 +43,7 @@ class _InputPageState extends State<InputPage> {
                         selectedGender = Gender.male;
                       });
                     },
-                    colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
+                    colour: selectedGender == Gender.male ? kActiveCardColour : kInActiveCardColour,
                     cardChild: IconContent(gender: "MALE", icon: FontAwesomeIcons.mars),
                   ),
                 ),
@@ -55,7 +55,7 @@ class _InputPageState extends State<InputPage> {
                         selectedGender = Gender.female;
                       });
                     },
-                    colour: selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
+                    colour: selectedGender == Gender.female ? kActiveCardColour : kInActiveCardColour,
                     cardChild: IconContent(gender: "FEMALE", icon: FontAwesomeIcons.venus),
                   ),
                 ),
@@ -66,13 +66,13 @@ class _InputPageState extends State<InputPage> {
 
           Expanded( 
             child: ReusableCard(
-              colour: activeCardColour,
+              colour: kActiveCardColour,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     "HEIGHT",
-                    style: labelTextStyle,
+                    style: kLabelTextStyle,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +81,7 @@ class _InputPageState extends State<InputPage> {
                     children: <Widget>[
                       Text(
                         height.toString(),
-                        style: numberTextStyle,
+                        style: kNumberTextStyle,
                       ),
 
                       SizedBox(
@@ -90,7 +90,7 @@ class _InputPageState extends State<InputPage> {
 
                       Text(
                         'in',
-                        style: labelTextStyle,
+                        style: kLabelTextStyle,
                       ),
                     ],
                   ),
@@ -125,17 +125,17 @@ class _InputPageState extends State<InputPage> {
 
                 Expanded(
                   child: ReusableCard(
-                    colour: activeCardColour,
+                    colour: kActiveCardColour,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
                           'WEIGHT',
-                          style: labelTextStyle,
+                          style: kLabelTextStyle,
                         ),
                         Text(
                           weight.toString(),
-                          style: numberTextStyle,
+                          style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -172,19 +172,19 @@ class _InputPageState extends State<InputPage> {
 
                 Expanded(
                   child: ReusableCard(
-                    colour: activeCardColour,
+                    colour: kActiveCardColour,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
 
                         Text(
                           "AGE",
-                          style: labelTextStyle,
+                          style: kLabelTextStyle,
                         ),
 
                         Text(
                           age.toString(),
-                          style: numberTextStyle,
+                          style: kNumberTextStyle,
                         ),
 
                         Row(
@@ -229,11 +229,16 @@ class _InputPageState extends State<InputPage> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
             },
             child: Container(
-              color: bottomContainerColour,
+              color: kBottomContainerColour,
               margin: EdgeInsets.only(top: 10.0),
               width: double.infinity,
-              height: bottomContainerHeight,
-              child: Text("Calculate"),
+              height: kBottomContainerHeight,
+              child: Center(
+                child: Text(
+                  "CALCULATE",
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
             ),
           ),
         ],
