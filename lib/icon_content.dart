@@ -27,13 +27,14 @@ class IconContent extends StatelessWidget {
 
 class RoundIconButton extends StatelessWidget {
 
-  RoundIconButton({this.icon});
+  RoundIconButton({@required this.icon, @required this.onPressed});
   final IconData icon;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(
         width: 56.0,

@@ -9,8 +9,6 @@ enum Gender {
   female,
 }
 
-int weight = 160;
-
 class InputPage extends StatefulWidget {
 
   @override
@@ -20,6 +18,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 68;
+  int weight = 160;
 
   @override
   Widget build(BuildContext context) {
@@ -137,6 +136,11 @@ class _InputPageState extends State<InputPage> {
 
                             RoundIconButton(
                               icon: Icons.remove,
+                              onPressed: () {
+                                setState(() {
+                                  weight > 100 ? weight-- : weight = weight;
+                                });
+                              },
                             ),
 
                             SizedBox(
@@ -145,6 +149,11 @@ class _InputPageState extends State<InputPage> {
 
                             RoundIconButton(
                               icon: Icons.add,
+                              onPressed: () {
+                                setState(() {
+                                  weight < 350 ? weight++ : weight = weight;
+                                });
+                              },
                             ),
 
                           ],
