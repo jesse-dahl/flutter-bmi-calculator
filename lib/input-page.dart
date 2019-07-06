@@ -17,7 +17,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  int height = 180;
+  int height = 68;
+  int weight = 130;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +82,7 @@ class _InputPageState extends State<InputPage> {
                         style: numberTextStyle,
                       ),
                       Text(
-                        'cm',
+                        'in',
                         style: labelTextStyle,
                       ),
                     ],
@@ -97,8 +98,8 @@ class _InputPageState extends State<InputPage> {
                     ),
                     child: Slider(
                       value: height.toDouble(),
-                      min: 120.0,
-                      max: 220.0,
+                      min: 48.0,
+                      max: 84.0,
                       onChanged: (double newValue) {
                         setState(() {
                           height = newValue.round();
@@ -116,7 +117,58 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
 
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: numberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[ 
+
+                            FloatingActionButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                              backgroundColor: Color(0xFF4C4F5E),
+                            ),
+
+                            SizedBox(
+                              width: 10,
+                            ),
+
+                            FloatingActionButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              child: Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              ),
+                              backgroundColor: Color(0xFF4C4F5E),
+                            ),
+
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
 
                 Expanded(
