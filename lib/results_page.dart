@@ -3,7 +3,7 @@ import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'reusable_card.dart';
-import 'input-page.dart';
+import 'bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
   @override
@@ -18,6 +18,8 @@ class ResultsPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.center,
               child: Text(
                 'Your Result',
                 style: kTitleTextStyle,
