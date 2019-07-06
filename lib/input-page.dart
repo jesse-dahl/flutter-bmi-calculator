@@ -19,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 68;
   int weight = 160;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +145,7 @@ class _InputPageState extends State<InputPage> {
                             ),
 
                             SizedBox(
-                              width: 10,
+                              width: 10.0,
                             ),
 
                             RoundIconButton(
@@ -164,7 +165,54 @@ class _InputPageState extends State<InputPage> {
                 ),
 
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+
+                        Text(
+                          "AGE",
+                          style: labelTextStyle,
+                        ),
+
+                        Text(
+                          age.toString(),
+                          style: numberTextStyle,
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+
+                            RoundIconButton(
+                              icon: Icons.remove,
+                              onPressed: () {
+                                setState(() {
+                                  age > 1 ? age-- : age = age;
+                                });
+                              },
+                            ),
+
+                            SizedBox(
+                              width: 10.0,
+                            ),
+
+                            RoundIconButton(
+                              icon: Icons.add,
+                              onPressed: () {
+                                setState(() {
+                                  age < 100 ? age++ : age = age;
+                                });
+                              },
+                            ),
+
+                          ],
+                        ),
+
+                      ],
+                    ),
+                  ),
                 ),
 
               ],
