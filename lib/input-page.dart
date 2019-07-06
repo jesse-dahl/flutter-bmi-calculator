@@ -18,7 +18,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 68;
-  int weight = 130;
+  int weight = 160;
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +137,7 @@ class _InputPageState extends State<InputPage> {
                             FloatingActionButton(
                               onPressed: () {
                                 setState(() {
-                                  weight++;
+                                  weight < 350 ? weight++ : weight = weight;
                                 });
                               },
                               child: Icon(
@@ -154,7 +154,7 @@ class _InputPageState extends State<InputPage> {
                             FloatingActionButton(
                               onPressed: () {
                                 setState(() {
-                                  weight--;
+                                  weight > 100 ? weight-- : weight = weight;
                                 });
                               },
                               child: Icon(
